@@ -52,6 +52,29 @@ mod tests {
         assert!(output.is_ok());
     }
 
+    /// Call [`ServiceProvider::init`] from a second test in the same process.
+    ///
+    /// - Exercises the [`OnceLock`] guard in [`Logger::init`]
+    /// - Reproduces the scenario where parallel tests both build a service
+    ///   container that registers logging and call init
+    #[test]
+    fn service_builder_with_logging_init_twice() {
+        // Arrange
+        let services = ServiceBuilder::new()
+            .with_instance(AppCliOptions {
+                log_level: LogLevel::Info,
+            })
+            .with_logging(|services| {
+                let cli = services.get::<AppCliOptions>()?;
+                Ok(LoggerBuilder::new().with_level(cli.log_level).build())
+            })
+            .build();
+        // Act
+        let output = services.init();
+        // Assert
+        assert!(output.is_ok());
+    }
+
     #[test]
     fn service_builder_with_logging() {
         // Arrange

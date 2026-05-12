@@ -7,6 +7,10 @@ license.workspace = true
 repository.workspace = true
 description = "Opinionated logging for `studiole-di`"
 
+[features]
+default = []
+testing = []
+
 [dependencies]
 serde = { workspace = true }
 studiole-di = { workspace = true }
