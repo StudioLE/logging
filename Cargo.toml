@@ -19,6 +19,7 @@ thiserror = { version = "2.0.18" }
 tracing = { version = "0.1.44" }
 # v0.3.20 breaks ANSI colors in the terminal
 tracing-subscriber = "=0.3.19"
+tracing-wasm = { version = "0.2.1" }
 
 [workspace.lints.rust]
 missing_docs = "warn"
