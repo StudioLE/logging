@@ -17,6 +17,13 @@ pub struct Logger {
     pub(crate) level: LogLevel,
     /// Per-target level overrides.
     pub(crate) targets: Vec<TargetFilter>,
+    /// Optional custom writer for formatted log output.
+    ///
+    /// - When [`Some`], replaces the default `stderr`/`TestWriter` sink
+    /// - Set via [`LoggerBuilder::with_writer`]
+    /// - Default: [`None`]
+    #[cfg(not(target_arch = "wasm32"))]
+    pub(crate) writer: Option<SharedWriter>,
 }
 
 impl Init for Logger {

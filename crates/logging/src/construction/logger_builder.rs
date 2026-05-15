@@ -6,6 +6,8 @@ use crate::prelude::*;
 pub struct LoggerBuilder {
     level: LogLevel,
     targets: Vec<TargetFilter>,
+    #[cfg(not(target_arch = "wasm32"))]
+    pub(super) writer: Option<SharedWriter>,
 }
 
 impl LoggerBuilder {
@@ -15,6 +17,8 @@ impl LoggerBuilder {
         Self {
             level: LogLevel::default(),
             targets: Vec::new(),
+            #[cfg(not(target_arch = "wasm32"))]
+            writer: None,
         }
     }
 
@@ -41,6 +45,8 @@ impl LoggerBuilder {
         Logger {
             level: self.level,
             targets: self.targets,
+            #[cfg(not(target_arch = "wasm32"))]
+            writer: self.writer,
         }
     }
 }
