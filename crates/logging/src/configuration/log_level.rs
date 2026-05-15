@@ -1,6 +1,7 @@
 //! Log level configuration.
 
 use crate::prelude::*;
+use tracing::Level;
 use tracing_subscriber::filter::LevelFilter;
 
 /// Verbosity of log output.
@@ -54,6 +55,30 @@ impl FromStr for LogLevel {
     }
 }
 
+impl From<LogLevel> for Level {
+    fn from(level: LogLevel) -> Self {
+        match level {
+            LogLevel::Error => Self::ERROR,
+            LogLevel::Warn => Self::WARN,
+            LogLevel::Info => Self::INFO,
+            LogLevel::Debug => Self::DEBUG,
+            LogLevel::Trace => Self::TRACE,
+        }
+    }
+}
+
+impl From<Level> for LogLevel {
+    fn from(level: Level) -> Self {
+        match level {
+            Level::ERROR => Self::Error,
+            Level::WARN => Self::Warn,
+            Level::INFO => Self::Info,
+            Level::DEBUG => Self::Debug,
+            Level::TRACE => Self::Trace,
+        }
+    }
+}
+
 impl From<LogLevel> for LevelFilter {
     fn from(level: LogLevel) -> Self {
         match level {
@@ -62,6 +87,21 @@ impl From<LogLevel> for LevelFilter {
             LogLevel::Info => Self::INFO,
             LogLevel::Debug => Self::DEBUG,
             LogLevel::Trace => Self::TRACE,
+        }
+    }
+}
+
+impl TryFrom<LevelFilter> for LogLevel {
+    type Error = ParseLogLevelError;
+
+    fn try_from(level: LevelFilter) -> Result<Self, <Self as TryFrom<LevelFilter>>::Error> {
+        match level {
+            LevelFilter::ERROR => Ok(Self::Error),
+            LevelFilter::WARN => Ok(Self::Warn),
+            LevelFilter::INFO => Ok(Self::Info),
+            LevelFilter::DEBUG => Ok(Self::Debug),
+            LevelFilter::TRACE => Ok(Self::Trace),
+            LevelFilter::OFF => Err(ParseLogLevelError),
         }
     }
 }
