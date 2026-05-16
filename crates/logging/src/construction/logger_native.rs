@@ -34,6 +34,7 @@ fn build_registry(filter: Targets, writer: Option<SharedWriter>) -> impl Subscri
     let make_writer = writer.unwrap_or_else(|| SharedWriter::from_box(default_make_writer()));
     let layer = layer()
         .compact()
+        .with_ansi_sanitization(false)
         .with_writer(make_writer)
         .with_target(false)
         .with_timer(ElapsedTime::default())
