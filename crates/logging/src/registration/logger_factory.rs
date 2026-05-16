@@ -71,7 +71,7 @@ mod tests {
             })
             .build();
         // Act
-        let logger = services.get::<Logger>().expect("should resolve");
+        let logger = services.expect::<Logger>();
         // Assert
         assert_eq!(logger.level, LogLevel::Warn);
         assert_eq!(logger.targets.len(), 2);

@@ -283,9 +283,9 @@ checksum = "67b1b7a3b5fe4f1376887184045fcf45c69e92af734b7aaddc05fb777b6fbd03"
 
 [[package]]
 name = "studiole-di"
-version = "0.5.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "88541cb396723b899edbde4deb165c8032ab5c552afaf3688f3bf07cc5e4fbe8"
+checksum = "8b79e765871555bc67bb34dd5fe7bc5a18f2312b88c48af14dcc3a43b35c5e8b"
 dependencies = [
  "studiole-di-macros",
  "studiole-report",
@@ -295,9 +295,9 @@ dependencies = [
 
 [[package]]
 name = "studiole-di-macros"
-version = "0.5.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "07d46f7b69f86442456f2ea916266111fc50781cf1ad1a87d49f27fa822ce007"
+checksum = "b3ef0d445bb6dea3b557a13f5d5cfc766f1d3a0ba4a0077f5a8de9e2d2e8befe"
 dependencies = [
  "proc-macro2",
  "quote",
