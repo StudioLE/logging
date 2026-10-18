@@ -19,6 +19,7 @@ thiserror = { version = "2.0.18" }
 tracing = { version = "0.1.44" }
 tracing-subscriber = { version = "0.3.23" }
 tracing-wasm = { version = "0.2.1" }
+usage-rs = { version = "7.0.2", default-features = false, features = ["spec"] }
 
 [workspace.lints.rust]
 missing_docs = "warn"

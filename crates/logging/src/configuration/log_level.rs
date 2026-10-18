@@ -6,6 +6,7 @@ use tracing_subscriber::filter::LevelFilter;
 
 /// Verbosity of log output.
 #[derive(Clone, Copy, Debug, Deserialize, Default, Eq, PartialEq, Serialize)]
+#[cfg_attr(feature = "usage", derive(usage_rs::ValueEnum), usage(ignore_case))]
 pub enum LogLevel {
     /// Errors only.
     Error,
