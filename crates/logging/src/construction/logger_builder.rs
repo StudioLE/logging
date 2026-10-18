@@ -65,7 +65,7 @@ mod tests {
     fn logger_builder_defaults() {
         let logger = LoggerBuilder::new().build();
         assert_eq!(logger.level, LogLevel::Info);
-        assert!(logger.targets.is_empty());
+        assert_eq!(logger.targets, Vec::new());
     }
 
     #[test]
