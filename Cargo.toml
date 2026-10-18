@@ -12,10 +12,10 @@ license = "AGPL-3.0-only"
 repository = "https://github.com/StudioLE/logging"
 
 [workspace.dependencies]
-serde = { version = "1.0.228", features = ["derive"] }
+serde = { version = "1.0.229", features = ["derive"] }
 studiole-di = { version = "0.6.0" }
-studiole-report = { version = "0.4.0", features = ["render"] }
-thiserror = { version = "2.0.18" }
+studiole-report = { version = "0.4.1", features = ["render"] }
+thiserror = { version = "2.0.21" }
 tracing = { version = "0.1.44" }
 tracing-subscriber = { version = "0.3.23" }
 tracing-wasm = { version = "0.2.1" }
