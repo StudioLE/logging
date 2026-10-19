@@ -18,7 +18,7 @@ impl Default for ElapsedTime {
 }
 
 impl FormatTime for ElapsedTime {
-    fn format_time(&self, w: &mut Writer<'_>) -> FmtResult {
+    fn format_time(&self, w: &mut Writer<'_>) -> fmt::Result {
         let elapsed = self.start.elapsed();
         write!(w, "{:.3}", elapsed.as_secs_f64())
     }

@@ -36,7 +36,7 @@ impl LogLevel {
 }
 
 impl Display for LogLevel {
-    fn fmt(&self, f: &mut Formatter<'_>) -> FmtResult {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         f.write_str(self.as_str())
     }
 }

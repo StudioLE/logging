@@ -1,7 +1,7 @@
 //! Native platform tracing subscriber.
 use crate::prelude::*;
 #[cfg(not(feature = "testing"))]
-use std::io::stderr;
+use std::io;
 use tracing::Subscriber;
 use tracing::subscriber::set_global_default;
 use tracing_subscriber::filter::Targets;
@@ -45,7 +45,7 @@ fn build_registry(filter: Targets, writer: Option<SharedWriter>) -> impl Subscri
 /// Default writer factory used when no custom writer is supplied.
 #[cfg(not(feature = "testing"))]
 fn default_make_writer() -> BoxMakeWriter {
-    BoxMakeWriter::new(stderr)
+    BoxMakeWriter::new(io::stderr)
 }
 
 /// Testing-feature default: route through [`TestWriter`] so `cargo test` captures output.

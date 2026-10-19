@@ -30,7 +30,7 @@ impl SharedWriter {
 }
 
 impl Debug for SharedWriter {
-    fn fmt(&self, f: &mut Formatter<'_>) -> FmtResult {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         f.write_str("SharedWriter(..)")
     }
 }
