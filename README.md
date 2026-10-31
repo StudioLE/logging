@@ -18,4 +18,4 @@ Cargo workspace with single crate:
 
 ## CI/CD
 
-Reusable workflow: `StudioLE/Actions/.github/workflows/ci-cd-rust.yml@v7`
+Reusable workflow: `StudioLE/Actions/.github/workflows/ci-cd-crates.yml@v8`
